@@ -1,15 +1,14 @@
-package com.webdriver.intro;
+package com.uiplayground;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Demo {
+public class RegistrationFormAutomation {
 
 	public static void main(String[] args) {
 		WebDriver wd=new ChromeDriver();
-		wd.get("https://www.google.com");
-		System.out.println(wd.getTitle());
-
+		wd.get("http://uiplayground.techwithjatin.com/");
+		wd.manage().window().maximize(); 
 	}
 
 }
