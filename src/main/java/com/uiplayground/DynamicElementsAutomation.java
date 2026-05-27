@@ -1,5 +1,7 @@
 package com.uiplayground;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,9 +23,26 @@ public class DynamicElementsAutomation {
 		addMenuItemButton.click();
 		Thread.sleep(5000);
 		addMenuItemButton.click();
-		
 		Thread.sleep(5000);
 		addMenuItemButton.click();
+		Thread.sleep(5000);
+		
+		 By swiggyCardLocator=By.cssSelector(".swiggy-card");
+		List<WebElement> foodItemList=wd.findElements(swiggyCardLocator);
+		System.out.println(foodItemList.size());
+		for (WebElement foodItem : foodItemList) {
+			
+			By foodItemNameLocator=By.xpath(".//div[@class=\"swiggy-name\"]");
+			WebElement foodItemName= foodItem.findElement(foodItemNameLocator);
+			System.out.println(foodItemName.getText());
+		}
+		
+		
+		By liveCounterLocator=By.cssSelector(".counter-badge");
+		WebElement liveCounter=wd.findElement(liveCounterLocator);
+		System.out.println(liveCounter.getText());
+		
+		
 
 	}
 
