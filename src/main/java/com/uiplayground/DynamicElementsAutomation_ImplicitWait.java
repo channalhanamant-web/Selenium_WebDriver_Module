@@ -1,5 +1,6 @@
 package com.uiplayground;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -7,11 +8,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class DynamicElementsAutomation {
+public class DynamicElementsAutomation_ImplicitWait {
 
 	public static void main(String[] args) throws InterruptedException {
 		WebDriver wd = new ChromeDriver();
 		wd.get("http://uiplayground.techwithjatin.com/");
+		wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		wd.manage().window().maximize();
 
 		By dynamicElementsLocator = By.xpath("//div[@data-testid=\"nav-1\"]");
@@ -21,11 +23,11 @@ public class DynamicElementsAutomation {
 		By addMenuItemButtonLocator = By.xpath("//button[@data-testid=\"btn-add-item\"]");
 		WebElement addMenuItemButton = wd.findElement(addMenuItemButtonLocator);
 		addMenuItemButton.click();
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		addMenuItemButton.click();
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		addMenuItemButton.click();
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 
 		By swiggyCardLocator = By.cssSelector(".swiggy-card");
 		List<WebElement> foodItemList = wd.findElements(swiggyCardLocator);
@@ -45,13 +47,12 @@ public class DynamicElementsAutomation {
 		WebElement liveCounter = wd.findElement(liveCounterLocator);
 		System.out.println(liveCounter.getText());
 
-		
+
 
 		By hideMenuButtonLocator = By.xpath("//button[@data-testid=\"btn-toggle-visibility\"]");
 		WebElement hideMenuButton = wd.findElement(hideMenuButtonLocator);
 		hideMenuButton.click();
 
-		
 
 		By visibilityStateLocator = By.xpath("//span[@data-testid=\"visibility-state\"]");
 		WebElement visibilityState = wd.findElement(visibilityStateLocator);
