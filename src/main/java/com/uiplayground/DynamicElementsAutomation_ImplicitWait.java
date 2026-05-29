@@ -23,11 +23,11 @@ public class DynamicElementsAutomation_ImplicitWait {
 		By addMenuItemButtonLocator = By.xpath("//button[@data-testid=\"btn-add-item\"]");
 		WebElement addMenuItemButton = wd.findElement(addMenuItemButtonLocator);
 		addMenuItemButton.click();
-		//Thread.sleep(5000);
+		
 		addMenuItemButton.click();
-		//Thread.sleep(5000);
+
 		addMenuItemButton.click();
-		//Thread.sleep(5000);
+		
 
 		By swiggyCardLocator = By.cssSelector(".swiggy-card");
 		List<WebElement> foodItemList = wd.findElements(swiggyCardLocator);
