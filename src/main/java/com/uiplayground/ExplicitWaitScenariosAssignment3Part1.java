@@ -2,6 +2,7 @@ package com.uiplayground;
 
 import java.time.Duration;
 
+import org.jspecify.annotations.NonNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,10 +40,6 @@ public class ExplicitWaitScenariosAssignment3Part1 {
 
 		long endTime = System.currentTimeMillis();
 		System.out.println("Duration -> " + (endTime - startTime) / 1000);
-		
-		
-		
-		
 
 		System.out.println("........Task 2 ..........");
 
@@ -64,11 +61,29 @@ public class ExplicitWaitScenariosAssignment3Part1 {
 
 		String status2 = taskTwoDisableButton.getAttribute("disabled");
 		System.out.println("Disabled? " + status2);
-		
-		
+
 		
 		
 		System.out.println("........Task 3 ..........");
+		
+		By taskThreeEnterTextBoxLocator = By.xpath("//div[@data-testid=\"wait-text-target\"]");
+		WebElement taskThreeEnterTextBox = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(taskThreeEnterTextBoxLocator));
+		System.out.println(taskThreeEnterTextBox.getText());
+
+	
+
+		By taskThreetriggerButtonElementLocator = By.xpath("//button[@data-testid=\"btn-trigger-text\"]");
+		WebElement taskThreetriggerButtonElement = wait
+				.until(ExpectedConditions.elementToBeClickable(taskThreetriggerButtonElementLocator));
+		taskThreetriggerButtonElement.click();
+
+		Boolean taskThreeEnteredText = wait
+				.until(ExpectedConditions.textToBePresentInElementLocated(taskThreeEnterTextBoxLocator, "injected "));
+		System.out.println(taskThreeEnteredText);
+
+		taskThreeEnterTextBox = wait.until(ExpectedConditions.visibilityOfElementLocated(taskThreeEnterTextBoxLocator));
+		System.out.println(taskThreeEnterTextBox.getText());
 
 	}
 
