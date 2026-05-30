@@ -84,6 +84,11 @@ public class ExplicitWaitScenariosAssignment3Part1 {
 
 		taskThreeEnterTextBox = wait.until(ExpectedConditions.visibilityOfElementLocated(taskThreeEnterTextBoxLocator));
 		System.out.println(taskThreeEnterTextBox.getText());
+		
+		
+		
+		
+		System.out.println("........Task 4  ..........");
 
 	}
 
