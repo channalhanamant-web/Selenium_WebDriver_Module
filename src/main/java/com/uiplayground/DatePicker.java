@@ -38,7 +38,17 @@ public class DatePicker {
 		By selectedDateRangeLocator= By.xpath("//div[@data-testid=\"range-result\"]");
 		System.out.println(wait.until(ExpectedConditions.visibilityOfElementLocated(selectedDateRangeLocator)).getText());
 		
-		//input[@data-testid="time-picker"]
+		
+		
+		By timePickerInputLocator=By.xpath("//input[@data-testid=\"time-picker\"]");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(timePickerInputLocator)).sendKeys("10:20 PM");
+		
+		By selectedtimePickerInputLocator= By.xpath("//div[@data-testid=\"time-selected\"]");
+		System.out.println(wait.until(ExpectedConditions.visibilityOfElementLocated(selectedtimePickerInputLocator)).getText());
+		
+		
+		By disabledDatePickerLocator= By.xpath("//div[@class=\"disabled-dates\"]/span[1]");
+		System.out.println(wait.until(ExpectedConditions.visibilityOfElementLocated(disabledDatePickerLocator)).getText());
 	}
 
 }
